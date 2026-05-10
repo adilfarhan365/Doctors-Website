@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motion Physio NZ | Physiotherapy & Rehabilitation Clinic</title>
+  <meta name="description" content="Motion Physio NZ provides physiotherapy, injury recovery, and sports rehabilitation in New Zealand. Book trusted, movement-focused care today." />
+  <meta name="keywords" content="Physiotherapy NZ, Sports Rehabilitation, Injury Recovery, Motion Physio NZ, Physical Therapy New Zealand" />
+  <meta name="author" content="Motion Physio NZ" />
+  <meta property="og:title" content="Motion Physio NZ | Physiotherapy & Rehabilitation" />
+  <meta property="og:description" content="Athletic, modern physiotherapy care focused on recovery, movement, and long-term performance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_NZ" />
+  <meta name="theme-color" content="#0B4F6C" />
+
+  <style>
+    :root{
+      --bg:#f5f9fc;
+      --surface:#ffffff;
+      --surface-soft:#eef5fb;
+      --primary:#0b4f6c;
+      --primary-2:#136f8a;
+      --accent:#2ec4b6;
+      --accent-dark:#24a89c;
+      --text:#1a2a33;
+      --muted:#5f707b;
+      --border:#d9e6ef;
+      --ok:#1f9d66;
+      --shadow:0 10px 28px rgba(11,79,108,.12);
+      --radius:16px;
+      --radius-sm:12px;
+      --container:1140px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,#f7fbff 0%,#f2f8fc 100%);
+      line-height:1.6;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .container{width:min(92%, var(--container));margin-inline:auto}
+
+    .skip-link{
+      position:absolute;left:-9999px;top:auto;
+    }
+    .skip-link:focus{
+      left:1rem;top:1rem;z-index:9999;background:#fff;border:2px solid var(--primary);
+      border-radius:8px;padding:.5rem .75rem
+    }
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:1000;
+      backdrop-filter:blur(8px);
+      background:rgba(245,249,252,.88);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      min-height:74px;
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    }
+    .brand{
+      display:flex;align-items:center;gap:.6rem;
+      font-weight:800;letter-spacing:.2px;color:var(--primary);
+    }
+    .brand-mark{
+      width:34px;height:34px;border-radius:50%;
+      background:conic-gradient(from 180deg,var(--accent),var(--primary-2),var(--accent));
+      box-shadow:0 4px 14px rgba(19,111,138,.35);
+    }
+
+    .nav-links{
+      list-style:none;margin:0;padding:0;
+      display:flex;align-items:center;gap:1.1rem;
+      color:var(--muted);font-weight:600;
+    }
+    .nav-links a:hover,.nav-links a:focus-visible{color:var(--primary);outline:none}
+
+    .menu-btn{
+      display:none;border:1px solid var(--border);background:#fff;
+      color:var(--text);padding:.5rem .65rem;border-radius:10px;cursor:pointer;font-weight:600
+    }
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:.82rem 1.2rem;border-radius:12px;border:none;cursor:pointer;
+      font-weight:700;transition:.25s transform,.25s box-shadow,.25s background;
+    }
+    .btn:focus-visible{outline:3px solid #9ec7da;outline-offset:2px}
+    .btn-primary{
+      background:var(--accent);color:#05313a;box-shadow:0 8px 20px rgba(46,196,182,.35)
+    }
+    .btn-primary:hover{background:var(--accent-dark);transform:translateY(-1px)}
+    .btn-secondary{
+      background:#fff;color:var(--primary);border:1px solid var(--border)
+    }
+
+    /* Hero */
+    .hero{padding:4.2rem 0 3rem}
+    .hero-wrap{
+      display:grid;grid-template-columns:1.15fr 1fr;gap:1.4rem;align-items:center;
+    }
+    .badge{
+      display:inline-block;padding:.3rem .62rem;border-radius:999px;
+      font-size:.8rem;font-weight:700;color:var(--primary);
+      border:1px solid #c6dceb;background:#eaf4fb;margin-bottom:1rem;
+    }
+
+    h1,h2,h3{line-height:1.2;margin:0 0 .7rem}
+    h1{font-size:clamp(2rem,4.2vw,3.2rem);color:#133445}
+    h2{font-size:clamp(1.45rem,2.5vw,2rem);color:#133445}
+    h3{font-size:1.08rem;color:#173848}
+    p{margin:0 0 1rem;color:var(--muted)}
+
+    .hero-card{
+      background:linear-gradient(165deg,#ffffff 0%, #f1f8fd 100%);
+      border:1px solid var(--border);border-radius:var(--radius);
+      padding:1.2rem;box-shadow:var(--shadow);
+    }
+
+    .metrics{
+      margin-top:.9rem;
+      display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;
+    }
+    .metric{
+      background:#fff;border:1px solid var(--border);border-radius:12px;padding:.7rem;text-align:center;
+    }
+    .metric strong{display:block;color:var(--primary);font-size:1.04rem}
+
+    section{padding:3rem 0}
+    .section-head{max-width:740px;margin-bottom:1.2rem}
+
+    .grid{display:grid;gap:1rem}
+    .cards-3{grid-template-columns:repeat(3,1fr)}
+    .cards-2{grid-template-columns:repeat(2,1fr)}
+
+    .card{
+      background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+      padding:1.05rem;box-shadow:var(--shadow);
+      transition:.25s transform,.25s box-shadow;
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(11,79,108,.14)}
+    .pill{
+      display:inline-block;font-size:.75rem;font-weight:700;
+      padding:.24rem .54rem;border-radius:999px;border:1px solid #cbe2ee;
+      color:var(--primary-2);background:#edf6fc;margin-bottom:.55rem
+    }
+
+    .icon{
+      width:40px;height:40px;border-radius:10px;
+      display:grid;place-items:center;
+      background:#e8f5f8;color:var(--primary);font-weight:800;margin-bottom:.45rem;
+    }
+
+    .profile small{color:#6e7f89;font-weight:600}
+    .quote{font-style:italic;color:#4b626f}
+
+    .booking-wrap{
+      display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start;
+    }
+
+    form .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    .full{grid-column:1/-1}
+
+    label{display:block;font-weight:700;margin-bottom:.33rem;color:#224252}
+    input,select,textarea{
+      width:100%;border:1px solid var(--border);background:#fff;border-radius:10px;
+      padding:.72rem .78rem;font:inherit;color:var(--text)
+    }
+    input:focus,select:focus,textarea:focus{
+      border-color:#7cb6cf;outline:3px solid #d8eefa;outline-offset:1px
+    }
+    .ok-msg{display:none;color:var(--ok);font-weight:700;margin-top:.72rem}
+
+    .blog .card h3{margin-bottom:.4rem}
+    .blog a.read-more{
+      color:var(--primary-2);font-weight:700;
+    }
+
+    .seo-local{
+      background:linear-gradient(180deg,#edf6fc 0%, #e8f4fb 100%);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+    .seo-list{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;
+    }
+    .seo-item{
+      background:#fff;border:1px solid var(--border);border-radius:12px;padding:.8rem;
+    }
+
+    .contact{
+      display:grid;grid-template-columns:1fr 1fr;gap:1rem;
+    }
+
+    footer{
+      padding:1.35rem 0 2rem;border-top:1px solid var(--border);color:#60717c
+    }
+
+    /* Reveal animations */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    @media (max-width:980px){
+      .hero-wrap,.booking-wrap,.contact{grid-template-columns:1fr}
+      .cards-3,.seo-list{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width:760px){
+      .menu-btn{display:inline-flex}
+      .nav-links{
+        display:none;position:absolute;left:0;right:0;top:74px;background:#f6fbff;
+        border-bottom:1px solid var(--border);padding:1rem 4%;
+        flex-direction:column;align-items:flex-start;
+      }
+      .nav-links.open{display:flex}
+      .cards-3,.cards-2,.seo-list,.metrics,form .form-grid{grid-template-columns:1fr}
+      section{padding:2.5rem 0}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *{transition:none !important;animation:none !important}
+      .reveal{opacity:1 !important;transform:none !important}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Motion Physio NZ home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        Motion Physio NZ
+      </a>
+
+      <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="mainNav">Menu</button>
+
+      <ul id="mainNav" class="nav-links">
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#sports-rehab">Sports Rehab</a></li>
+        <li><a href="#therapists">Therapists</a></li>
+        <li><a href="#booking">Book</a></li>
+        <li><a href="#stories">Success Stories</a></li>
+        <li><a href="#blog">Exercise Tips</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container hero-wrap">
+        <div class="reveal">
+          <span class="badge">Trusted Physiotherapy in New Zealand</span>
+          <h1>Move Better, Recover Faster, Live Stronger</h1>
+          <p>
+            At Motion Physio NZ, we combine clinical expertise with an active approach to help you recover from injuries,
+            reduce pain, and return confidently to daily life or sport.
+          </p>
+          <p>
+            Friendly care, modern rehab methods, and treatment plans built around your movement goals.
+          </p>
+          <a href="#booking" class="btn btn-primary">Book Your Assessment</a>
+          <a href="#programs" class="btn btn-secondary" style="margin-left:.5rem;">Explore Services</a>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="Clinic highlights">
+          <h3>Why patients choose Motion Physio NZ</h3>
+          <p>Professional, evidence-based rehabilitation tailored to your body, sport, and lifestyle.</p>
+          <div class="metrics">
+            <div class="metric"><strong>12+</strong><span>Years experience</span></div>
+            <div class="metric"><strong>1500+</strong><span>Patients yearly</span></div>
+            <div class="metric"><strong>4.9★</strong><span>Average rating</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Injury Recovery Programs -->
+    <section id="programs">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Injury Recovery Programs</h2>
+          <p>Structured rehabilitation pathways designed to rebuild strength, mobility, and confidence step by step.</p>
+        </div>
+        <div class="grid cards-3">
+          <article class="card reveal">
+            <span class="pill">Program 01</span>
+            <div class="icon">K</div>
+            <h3>Knee & ACL Recovery</h3>
+            <p>Progressive rehab for post-op and non-surgical knee injuries, with return-to-sport testing.</p>
+          </article>
+          <article class="card reveal">
+            <span class="pill">Program 02</span>
+            <div class="icon">B</div>
+            <h3>Back & Neck Pain Rehab</h3>
+            <p>Targeted mobility and strength plans to reduce pain, improve posture, and restore movement.</p>
+          </article>
+          <article class="card reveal">
+            <span class="pill">Program 03</span>
+            <div class="icon">S</div>
+            <h3>Shoulder Rehabilitation</h3>
+            <p>Hands-on treatment and exercise prescription for rotator cuff, instability, and overuse injuries.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sports Rehabilitation -->
+    <section id="sports-rehab" class="seo-local">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Sports Rehabilitation Services</h2>
+          <p>For runners, gym athletes, and team sport players aiming for safe, high-performance return to activity.</p>
+        </div>
+        <div class="grid cards-3">
+          <article class="card reveal">
+            <h3>Biomechanics Assessment</h3>
+            <p>Movement analysis to identify weaknesses, asymmetries, and injury risk factors.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Return-to-Play Planning</h3>
+            <p>Stage-based progression with objective strength and functional milestones.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Performance Reconditioning</h3>
+            <p>Bridge rehab and performance training with sports-specific exercise prescription.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Therapists -->
+    <section id="therapists">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Meet Our Therapists</h2>
+          <p>A welcoming team focused on practical care, clear communication, and measurable recovery outcomes.</p>
+        </div>
+        <div class="grid cards-3">
+          <article class="card profile reveal">
+            <h3>Olivia Chen, Senior Physiotherapist</h3>
+            <small>Musculoskeletal Rehab | Shoulder & Spine</small>
+            <p>Olivia specializes in restoring movement quality and reducing long-term injury recurrence.</p>
+          </article>
+          <article class="card profile reveal">
+            <h3>Samir Patel, Sports Physio</h3>
+            <small>Sports Injuries | Return-to-Play</small>
+            <p>Samir helps active patients recover confidently and return stronger to training and competition.</p>
+          </article>
+          <article class="card profile reveal">
+            <h3>Hana Wilson, Rehabilitation Therapist</h3>
+            <small>Post-op Care | Strength Rebuilding</small>
+            <p>Hana combines compassionate care with progressive exercise plans for lasting results.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="booking">
+      <div class="container booking-wrap">
+        <div class="section-head reveal">
+          <h2>Book an Appointment</h2>
+          <p>Tell us your injury or movement goal, and we’ll match you with the right therapist.</p>
+          <p><strong>Clinic:</strong> Motion Physio NZ, Auckland, New Zealand</p>
+          <p><strong>Phone:</strong> +64 9 123 4567</p>
+          <p><strong>Email:</strong> hello@motionphysionz.co.nz</p>
+        </div>
+
+        <form id="bookingForm" class="card reveal" novalidate>
+          <div class="form-grid">
+            <div>
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div>
+              <label for="service">Service</label>
+              <select id="service" name="service" required>
+                <option value="">Choose a service</option>
+                <option>Initial Physiotherapy Assessment</option>
+                <option>Sports Rehabilitation</option>
+                <option>Post-Surgery Rehabilitation</option>
+                <option>Injury Recovery Program</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="notes">Injury / Goal Details</label>
+              <textarea id="notes" name="notes" rows="4" placeholder="Briefly describe your symptoms or movement goals"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Booking Request</button>
+          <p id="okMsg" class="ok-msg" role="status" aria-live="polite">
+            Thanks! Your booking request has been sent. We’ll contact you shortly.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section id="stories">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Success Stories</h2>
+          <p>Real patient outcomes from focused rehabilitation and supportive guidance.</p>
+        </div>
+        <div class="grid cards-3">
+          <article class="card reveal">
+            <p class="quote">“After my ankle injury, I went from pain while walking to finishing a 10K run in four months.”</p>
+            <p><strong>— Ethan, Recreational Runner</strong></p>
+          </article>
+          <article class="card reveal">
+            <p class="quote">“The team explained every step. My shoulder is strong again and I’m back to training confidently.”</p>
+            <p><strong>— Maia, CrossFit Athlete</strong></p>
+          </article>
+          <article class="card reveal">
+            <p class="quote">“I appreciated how friendly and professional everyone was. My back pain is finally manageable.”</p>
+            <p><strong>— Daniel, Office Professional</strong></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercise Tips Blog -->
+    <section id="blog">
+      <div class="container blog">
+        <div class="section-head reveal">
+          <h2>Exercise Tips Blog</h2>
+          <p>Quick, practical guidance to help you stay active, prevent injury, and recover smarter.</p>
+        </div>
+        <div class="grid cards-3">
+          <article class="card reveal">
+            <span class="pill">Mobility</span>
+            <h3>5-minute warm-up for safer workouts</h3>
+            <p>A simple dynamic prep routine to improve movement quality before training.</p>
+            <a class="read-more" href="#">Read article →</a>
+          </article>
+          <article class="card reveal">
+            <span class="pill">Recovery</span>
+            <h3>How to manage soreness after sport</h3>
+            <p>Know when soreness is normal and when to seek physiotherapy support.</p>
+            <a class="read-more" href="#">Read article →</a>
+          </article>
+          <article class="card reveal">
+            <span class="pill">Strength</span>
+            <h3>3 core drills for lower-back support</h3>
+            <p>Beginner-friendly exercises to build resilience and improve spine stability.</p>
+            <a class="read-more" href="#">Read article →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Local SEO highlight section -->
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Serving Auckland & Nearby Communities</h2>
+          <p>Motion Physio NZ supports patients across Auckland with modern physiotherapy and sports rehab care.</p>
+        </div>
+        <div class="seo-list">
+          <div class="seo-item reveal"><strong>Location:</strong> Central Auckland, New Zealand</div>
+          <div class="seo-item reveal"><strong>Specialty:</strong> Injury recovery and sports rehabilitation</div>
+          <div class="seo-item reveal"><strong>Appointments:</strong> In-clinic and follow-up rehab planning</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container contact">
+      <div>
+        <strong>Motion Physio NZ</strong><br />
+        Physiotherapy & Rehabilitation Clinic<br />
+        Auckland, New Zealand
+      </div>
+      <div>
+        <strong>Contact:</strong> hello@motionphysionz.co.nz<br />
+        <strong>Phone:</strong> +64 9 123 4567<br />
+        <span>&copy; <span id="year"></span> Motion Physio NZ. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("mainNav");
+    menuBtn.addEventListener("click", () => {
+      const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+      menuBtn.setAttribute("aria-expanded", String(!expanded));
+      nav.classList.toggle("open");
+    });
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Booking form demo submit
+    const form = document.getElementById("bookingForm");
+    const okMsg = document.getElementById("okMsg");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      okMsg.style.display = "block";
+      form.reset();
+    });
+
+    // Reveal animation on scroll
+    const items = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    items.forEach(el => observer.observe(el));
+
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Local Business + Medical schema for local SEO -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"MedicalBusiness",
+    "name":"Motion Physio NZ",
+    "description":"Modern physiotherapy clinic in New Zealand focused on injury recovery, sports rehabilitation, and movement performance.",
+    "url":"https://www.motionphysionz.co.nz",
+    "telephone":"+64-9-123-4567",
+    "email":"hello@motionphysionz.co.nz",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Auckland",
+      "addressCountry":"NZ"
+    },
+    "areaServed":"Auckland",
+    "medicalSpecialty":"Physiotherapy",
+    "openingHours":"Mo-Fr 08:00-18:00"
+  }
+  </script>
+</body>
+</html>
